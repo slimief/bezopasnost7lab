@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+<style type="text/css">
+
+</style>
+</head>
+<script>
+
+function Atbash(slovo) {    
+    var stroka1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var stroka2 = "ZYXWVUTSRQPONMLKJIHGFEDCBA";
+    var stroka11 = "abcdefghijklmnopqrstuvwxyz";
+    var stroka22 = "zyxwvutsrqponmlkjihgfedcba";
+    var result = "";
+
+    for (var i = 0; i < slovo.length; i++) {
+        var full_slovo = slovo.charAt(i); 
+        if (/[^a-zA-Z]/.test(slovo[i])) {
+            result = result + slovo[i];	
+        }
+        else if (slovo[i] === slovo[i].toUpperCase()) {
+            var res1 = stroka1.indexOf(full_slovo);
+            var res2 = stroka2.charAt(res1);
+            result = result + res2;
+        } 
+        else {
+        var res11 = stroka11.indexOf(full_slovo);
+        var res22 = stroka22.charAt(res11);
+        result = result + res22;
+        }
+    }
+    return result;
+}
+document.write(Atbash(prompt()));
+
+</script>
+<body>
+</body>
+</html>
